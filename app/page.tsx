@@ -1,13 +1,10 @@
 
-import Link from "next/link";
-import ProductCard from "@/app/components/ProductCard";
+import Navbar from "@/app/components/Navbar";
 
 export default function Home() {
   return (
-    <main>
+    <main className={'p-6'}>
         <h1>hello world</h1>
-        <Link href={'/users'}>href</Link>
-        <ProductCard />
     </main>
   )
 }
