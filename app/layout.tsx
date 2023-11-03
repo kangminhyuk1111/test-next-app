@@ -19,7 +19,14 @@ export default function RootLayout({children,}: { children: React.ReactNode }) {
                         <Navbar/>
                     </div>
                     <div className={'w-11/12 h-auto'}>
-                        {children}
+                        <div className={'w-full flex flex-col'}>
+                            <nav className={'w-full flex flex-row h-16 bg-cyan-400 items-center justify-between'}>
+                                <p className={'p-4 text-xl font-bold'}>Vercel Admin</p>
+                                <p className={'p-4 text-xl'}>kangminhyuk1111</p>
+                            </nav>
+                            {children}
+                        </div>
+
                     </div>
                 </div>
             </body>

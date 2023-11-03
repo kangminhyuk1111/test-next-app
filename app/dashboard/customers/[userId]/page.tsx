@@ -1,7 +1,5 @@
 import Link from "next/link";
-import {usePathname} from "next/navigation";
-
-export default function Page() {
+export default function Page(): JSX.Element{
     return (
         <div className={'p-4'}>
             <p>Dashboard Page</p>

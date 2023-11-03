@@ -1,7 +1,8 @@
 import React, {Suspense} from 'react';
-import Loading from "@/app/test1/loading";
+import Loading from "@/app/components/loading";
+import Card from "@/app/components/card";
 
-interface User {
+export interface User {
     id: number;
     name: string;
     username: string;
@@ -25,36 +26,34 @@ interface User {
     };
 }
 
-async function getUser() {
+async function getUser(): Promise<any> {
     const res = await fetch('https://jsonplaceholder.typicode.com/users')
     const data = await res.json()
     return data
 }
 
-async function UserList() {
+async function UserList(): Promise<React.JSX.Element> {
     const data = await getUser()
     return (
         <>
             {data ? data.map((post: User, idx: number) => (
-                <li className={'w-2/3 flex flex-row w-100'} key={idx}>
-                    <span className={'w-1/3'}>{post.name}</span>
-                    <span className={'w-1/3 pl-4'}>{post.username}</span>
-                    <span className={'w-1/3 pl-4'}>{post.email}</span>
-                </li>
+                <Card key={idx}
+                 item={post}
+                />
             )) : <Loading/>}
         </>
     )
 }
 
-export default async function Test1() {
+export default async function Test1(): Promise<React.JSX.Element> {
     return (
-        <div className={'p-6'}>
-            <p className={"text-3xl"}>POSTS</p>
-            <ul className={"list-none pl-6 mt-4 space-y-2"}>
+        <div className={'flex flex-col min-h-fit p-6 overflow-hidden'}>
+            <p className={"text-3xl"}>Users</p>
+            <div className={'flex flex-row flex-wrap'}>
                 <Suspense fallback={<Loading/>}>
-                    <UserList />
+                    <UserList/>
                 </Suspense>
-            </ul>
+            </div>
         </div>
     );
 }
