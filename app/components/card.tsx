@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from "next/image";
 import {User} from "@/app/test1/page";
+import AddButton from "@/app/components/Button";
 
 interface IProps {
     item: User
 }
 
 const CardComponent: React.FC<IProps> = ({item}) => {
-    console.log(item)
     return (
         <div
             className="m-4 max-w-sm bg-white border min-w-fit border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -29,6 +29,7 @@ const CardComponent: React.FC<IProps> = ({item}) => {
                               d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
                 </a>
+                <AddButton />
             </div>
         </div>
     );

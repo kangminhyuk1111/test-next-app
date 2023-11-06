@@ -36,9 +36,9 @@ async function UserList(): Promise<React.JSX.Element> {
     const data = await getUser()
     return (
         <>
-            {data ? data.map((post: User, idx: number) => (
+            {data ? data.slice(0,4).map((post: User, idx: number) => (
                 <Card key={idx}
-                 item={post}
+                      item={post}
                 />
             )) : <Loading/>}
         </>

@@ -18,7 +18,7 @@ export default async function Posts() {
     const data = await fetchUserData()
     return (
         <div className={'w-full flex flex-row flex-wrap'}>
-            {data ? data.slice(0,20).map((item:Post,idx:number) => (
+            {data ? data.slice(0,4).map((item:Post,idx:number) => (
                 <div className={'w-1/4 m-2 bg-amber-300 p-2'}>
                     <p>{item.title}</p>
                     <p>{item.id}</p>
